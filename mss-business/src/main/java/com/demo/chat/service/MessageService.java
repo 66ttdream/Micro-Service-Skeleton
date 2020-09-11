@@ -1,0 +1,24 @@
+package com.demo.chat.service;
+
+import com.demo.chat.dao.MessageDao;
+import com.demo.chat.po.Message;
+import com.demo.chat.util.UUID;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+@Service
+public class MessageService {
+    @Resource
+    private MessageDao massageDao;
+    public void save(Message message){
+        message.setId(UUID.getUUID());
+        massageDao.save(message);
+    }
+    public Iterable<Message> getMessagesByName(String username){
+        return massageDao.findByAcceptName(username);
+    }
+    public Iterable<Message> getMessagesBySendName(String sendName){
+        return massageDao.findBySendName(sendName);
+    }
+}
