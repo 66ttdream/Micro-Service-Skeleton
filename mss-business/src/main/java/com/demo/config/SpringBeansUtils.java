@@ -1,4 +1,4 @@
-package com.demo.chat.config;
+package com.demo.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
