@@ -1,6 +1,7 @@
 package com.demo.chat.po;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name="questionnaire")
+@ApiModel(description = "问卷调查")
 public class QuestionNaire {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +26,5 @@ public class QuestionNaire {
     private String cljg;
     private String jyzj;
     private String ldyj;
+    private String file;
 }

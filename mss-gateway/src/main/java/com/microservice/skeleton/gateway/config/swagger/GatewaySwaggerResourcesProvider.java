@@ -11,10 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * Description:
- * User: Mr.Yangxiufeng
- * Date: 2018-04-18
+ * @author liuji
  * Time: 14:56
  */
 @Component

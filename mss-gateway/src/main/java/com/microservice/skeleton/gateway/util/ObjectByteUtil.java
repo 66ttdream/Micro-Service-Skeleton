@@ -3,9 +3,7 @@ package com.microservice.skeleton.gateway.util;
 import java.io.*;
 
 /**
- * Created by Mr.Yangxiufeng on 2017/12/26.
- * Time:14:03
- * ProjectName:Mirco-Service-Skeleton
+ * @author liuji
  */
 public class ObjectByteUtil {
 

@@ -5,6 +5,7 @@ import com.demo.pagedata.dao.FocusDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 
 @Service
 public class FocusService {
@@ -20,4 +21,11 @@ public class FocusService {
     public Iterable<Foucs> findByName(String userName){
         return focusDao.findByUserName(userName);
     }
+    public void deleteByName(String userName){
+        focusDao.deleteByUserName(userName);
+    }
+    /*public Iterable<Integer> findIdByName(String userName){
+        return focusDao.findIdByName(userName);
+    }*/
+
 }

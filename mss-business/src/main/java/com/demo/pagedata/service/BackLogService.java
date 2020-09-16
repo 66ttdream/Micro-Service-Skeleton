@@ -17,7 +17,7 @@ public class BackLogService {
     public void delete(BackLog backLog){
         backLogDao.delete(backLog);
     }
-    public void findByName(String userName){
-        backLogDao.findByUserName(userName);
+    public Iterable<BackLog> findByName(String userName){
+        return backLogDao.findByUserName(userName);
     }
 }

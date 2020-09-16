@@ -12,9 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 import org.springframework.security.oauth2.provider.expression.OAuth2WebSecurityExpressionHandler;
 
 /**
- * Created by Mr.Yangxiufeng on 2017/12/29.
- * Time:10:08
- * ProjectName:Mirco-Service-Skeleton
+ * @author liuji
  */
 @Configuration
 @EnableResourceServer

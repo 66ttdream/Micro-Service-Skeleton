@@ -36,7 +36,7 @@ public class Swagger2Config {
                 .title("resource文档")
                 .description("resource接口说明文档")
                 .termsOfServiceUrl("")
-                .contact(new Contact("杨秀峰","franky.yang@foxmail.com","franky.yang@foxmail.com"))
+                .contact(new Contact("刘继","1096352726@qq.com","1096352726@qq.com"))
                 .version("1.0")
                 .build();
     }

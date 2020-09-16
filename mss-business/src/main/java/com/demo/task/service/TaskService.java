@@ -3,6 +3,7 @@ package com.demo.task.service;
 import com.demo.chat.po.Task;
 import com.demo.task.dao.TaskDao;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -17,6 +18,8 @@ public class TaskService {
     public Iterable<Task> findAllTask(){
         return taskDao.findAll();
     }
+
+    @Transactional
     public void deleteByGroupId(String groupId){
         taskDao.deleteByGroupId(groupId);
     }

@@ -21,4 +21,12 @@ public class MessageService {
     public Iterable<Message> getMessagesBySendName(String sendName){
         return massageDao.findBySendName(sendName);
     }
+
+
+    public Iterable<Message> selectOneToOne(String sendName,String acceptName){
+        return massageDao.findBySendNameAndAcceptName(sendName,acceptName);
+    }
+    public Iterable<Message> getMessageByAcceptName(String acceptName,String sendName){
+        return massageDao.findByAcceptNameAndSendName(acceptName,sendName);
+    }
 }

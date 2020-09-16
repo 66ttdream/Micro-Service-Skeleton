@@ -12,9 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Mr.Yangxiufeng on 2017/12/25.
- * Time:15:39
- * ProjectName:Mirco-Service-Skeleton
+ * @author liuji
  */
 @Component
 public class PreRequestFilter extends ZuulFilter {

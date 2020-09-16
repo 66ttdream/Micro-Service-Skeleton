@@ -21,6 +21,6 @@ public class TaskGroupService {
     }
 
     public void delete(String groupId){
-        taskGroupDao.deleteByGroupId(groupId);
+        taskGroupDao.deleteById(groupId);
     }
 }

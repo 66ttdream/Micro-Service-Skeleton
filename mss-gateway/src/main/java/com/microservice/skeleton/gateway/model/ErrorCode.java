@@ -1,9 +1,6 @@
 package com.microservice.skeleton.gateway.model;
-
 /**
- * Created by Mr.Yangxiufeng on 2017/12/26.
- * Time:13:50
- * ProjectName:Mirco-Service-Skeleton
+ * @author liuji
  */
 public class ErrorCode {
 

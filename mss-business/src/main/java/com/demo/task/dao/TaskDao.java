@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface TaskDao extends JpaRepository<Task,String> {
 
     public Iterable<Task> findByGroupId(String groupId);
-    @Transactional
+    //@Transactional
     public void deleteByGroupId(String groupId);
 }

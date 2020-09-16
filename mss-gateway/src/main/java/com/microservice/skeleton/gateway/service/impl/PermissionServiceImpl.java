@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * Description:
- * User: Mr.Yangxiufeng
- * Date: 2018-05-14
- * Time: 16:01
+ * @author liuji
  */
 @Service("permissionService")
 @Slf4j

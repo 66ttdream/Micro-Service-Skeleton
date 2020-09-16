@@ -2,6 +2,8 @@ package com.demo.offender.controller;
 
 import com.demo.chat.po.QuestionNaire;
 import com.demo.offender.service.QuestionNaireService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import com.microservice.skeleton.common.vo.Result;
 import javax.annotation.Resource;
@@ -12,6 +14,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/questionnaire")
+@Api(tags = "工作报告api")
 public class QuestionNaireController {
     @Resource
     private QuestionNaireService questionNaireService;
@@ -39,5 +42,11 @@ public class QuestionNaireController {
             l.add(sjbh);
         }
         return Result.ok(l);
+    }
+
+    @GetMapping("all")
+    @ApiOperation(value = "获取工作报告")
+    public Result all(){
+        return Result.ok(questionNaireService.getAll());
     }
 }

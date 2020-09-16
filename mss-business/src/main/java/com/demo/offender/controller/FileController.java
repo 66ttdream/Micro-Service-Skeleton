@@ -20,6 +20,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import com.demo.chat.util.UUID;
 
+/**
+ * @author liuji
+ * 文件管理
+ */
 @Slf4j
 @CrossOrigin
 @RestController

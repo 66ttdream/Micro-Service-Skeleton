@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 
 /**
- * Created by Mr.Yangxiufeng on 2017/12/26.
- * Time:13:41
- * ProjectName:Mirco-Service-Skeleton
+ * @author liuji
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Msg<T> implements Serializable{

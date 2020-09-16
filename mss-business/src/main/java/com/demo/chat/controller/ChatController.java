@@ -6,6 +6,7 @@ import com.demo.config.SpringBeansUtils;
 import com.demo.chat.po.Message;
 import com.demo.chat.service.MessageService;
 import com.demo.chat.util.UUID;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -103,7 +104,7 @@ public class ChatController {
      *
      * @param message 客户端发送过来的消息*/
     @OnMessage
-    public void onMessage(String message, Session session) {
+    public void onMessage(String message,Session session) {
         log.info("用户消息:"+userId+",报文:"+message);
         //可以群发消息
         //消息保存到数据库、redis
@@ -122,22 +123,23 @@ public class ChatController {
                             .id(UUID.getUUID())
                             .acceptName(toUserId)
                             .sendName(userId)
-                            .content_data(jsonObject.getString(message))
+                            .content_data(jsonObject.getString("message"))
                             .send_time(new Date())
                             .system_massage("1")
                             .build());
                 }else{
-                    log.error("请求的userId:"+toUserId+"不在线");
-                    webSocketMap.get(toUserId).sendMessage(jsonObject.toJSONString());
                     useMessageService().save(Message
                             .builder()
                             .id(UUID.getUUID())
                             .acceptName(toUserId)
                             .sendName(userId)
-                            .content_data(jsonObject.getString(message))
+                            .content_data(jsonObject.getString("message"))
                             .send_time(new Date())
                             .system_massage("1")
                             .build());
+                    log.error("请求的userId:"+toUserId+"不在线");
+                    webSocketMap.get(toUserId).sendMessage(jsonObject.toJSONString());
+
 
                 }
             }catch (Exception e){
@@ -154,7 +156,7 @@ public class ChatController {
     @OnError
     public void onError(Session session, Throwable error) {
         log.error("用户错误:"+this.userId+",原因:"+error.getMessage());
-        error.printStackTrace();
+        //error.printStackTrace();
     }
     /**
      * 实现服务器主动推送
