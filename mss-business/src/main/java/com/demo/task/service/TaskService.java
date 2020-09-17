@@ -26,4 +26,13 @@ public class TaskService {
     public void save(Task task){
         taskDao.save(task);
     }
+
+    public void deleteById(String id){
+        taskDao.deleteById(id);
+    }
+    public void addNew(){
+        taskDao.addNew();
+    }
+
 }
+

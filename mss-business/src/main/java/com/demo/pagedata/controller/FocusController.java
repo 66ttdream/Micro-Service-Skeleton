@@ -22,6 +22,7 @@ public class FocusController {
     @PostMapping("/save")
     public Result save(@RequestBody List<Foucs> foucs){
         String userName = foucs.get(0).getUserName();
+        System.out.println("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss:"+userName);
         //Iterable<Integer> ids = focusService.findIdByName(userName);
 
         try {

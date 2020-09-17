@@ -51,10 +51,11 @@ public class GroupController {
     @ApiOperation(value = "删除指定任务组")
     @PostMapping("delete")
     @ApiImplicitParams(@ApiImplicitParam(name="groupId",value="任务组id",required=true))
-    public Result deleteGroup(String groupId){
-        taskGroupService.delete(groupId);
-        if(taskService.findByGroupId(groupId)!=null){
-            taskService.deleteByGroupId(groupId);
+    public Result deleteGroup(String id){
+        System.out.println("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii:"+id);
+        taskGroupService.delete(id);
+        if(taskService.findByGroupId(id)!=null){
+            taskService.deleteByGroupId(id);
         }
         return Result.ok();
     }

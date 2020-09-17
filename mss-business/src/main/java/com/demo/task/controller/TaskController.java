@@ -23,9 +23,17 @@ public class TaskController {
     @ApiOperation(value = "保存任务页面")
     @PostMapping("save")
     public Result saveTask(@RequestBody List<Task> task){
+        taskService.addNew();
         for(Task t:task){
-            t.setId(UUID.getUUID());
-            taskService.save(t);
+            if(t.getGroupId()!=null){
+            }
+            if(t.getGroupId()==null){
+                t.setId(UUID.getUUID());
+                taskService.save(t);
+            }
+
+            /*t.setId(UUID.getUUID());
+            taskService.save(t);*/
         }
         return Result.ok("保存成功");
     }
