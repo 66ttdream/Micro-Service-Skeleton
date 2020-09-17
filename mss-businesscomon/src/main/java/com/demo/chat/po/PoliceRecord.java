@@ -41,4 +41,7 @@ public class PoliceRecord  {
     @ApiModelProperty(value = "犯罪事实")
     private String crime_fact;
 
+    @ApiModelProperty(value = "犯罪事实")
+    private Date add_time;
+
 }

@@ -1,6 +1,5 @@
 package com.demo.chat.po;
 
-import com.sun.istack.internal.NotNull;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -64,7 +63,6 @@ public class Appointment {
     @Column(name = "code")
     private String code;
 
-    @ApiModelProperty(value = "添加时间")
-    @Column(name = "add_time")
+    @ApiModelProperty(value = "新增时间")
     private Date add_time;
 }
