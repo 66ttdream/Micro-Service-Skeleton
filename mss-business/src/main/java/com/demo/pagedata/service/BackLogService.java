@@ -20,4 +20,8 @@ public class BackLogService {
     public Iterable<BackLog> findByName(String userName){
         return backLogDao.findByUserName(userName);
     }
+
+    public void deleteById(String id){
+        backLogDao.deleteById(id);
+    }
 }

@@ -31,6 +31,13 @@ public class BackLogController {
     @GetMapping("load")
     public Result get(String userName){
         return Result.ok(backLogService.findByName(userName));
+    }
 
+    @ApiOperation(value = "审批流程")
+    @PostMapping("valve")
+    public Result deleByName(String id){
+        //return Result.ok(backLogService.findByName(userName));
+        backLogService.deleteById(id);
+        return Result.ok();
     }
 }

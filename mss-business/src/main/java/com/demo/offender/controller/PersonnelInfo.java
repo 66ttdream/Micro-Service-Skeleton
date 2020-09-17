@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/personnelinfo")
@@ -33,6 +34,7 @@ public class PersonnelInfo {
     @ApiOperation(value = "保存公安罪犯信息")
     @PostMapping("/save/police")
     public Result savePolice(PoliceRecord policeRecord){
+        policeRecord.setAdd_time(new Date());
         policeRecordService.save(policeRecord);
         return Result.ok("操作成功");
     }
