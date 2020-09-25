@@ -11,4 +11,6 @@ public interface CriminalBaseDao extends JpaRepository<CriminalBase,String> {
     @Query("select m from CriminalBase m order by m.add_date ASC")
     public List<CriminalBase> findAll();
 
+    @Query("select count(c.certificate_number) from CriminalBase c")
+    public long count();
 }

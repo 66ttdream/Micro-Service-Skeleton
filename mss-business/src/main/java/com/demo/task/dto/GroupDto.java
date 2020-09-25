@@ -24,6 +24,7 @@ public class GroupDto {
     private Date deadline;
     private String userName;
     private String warningTime;
+    private String cycle;
     private List<Task> tasks;
     public TaskGroup getTaskGroup(){
         return TaskGroup.builder()
@@ -32,6 +33,7 @@ public class GroupDto {
                 .deadline(this.deadline)
                 .userName(this.userName)
                 .warningTime(this.warningTime)
+                .cycle(this.cycle)
                 .build();
     }
 }

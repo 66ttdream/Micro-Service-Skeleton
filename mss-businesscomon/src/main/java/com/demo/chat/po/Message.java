@@ -38,4 +38,6 @@ public class Message {
     private Date send_time;
     //消息类型,true为系统消息
     private String system_massage;
+    //是否未读(未读为1，已读为0)
+    private String isunread;
 }

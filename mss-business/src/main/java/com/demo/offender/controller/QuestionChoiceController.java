@@ -25,21 +25,6 @@ public class QuestionChoiceController {
     @PostMapping("/save")
     public Result save(QuestionChoice questionChoice){
         questionChoice.setId(UUID.getUUID());
-        int score = 0;
-        if(questionChoice.getOption1()!=null){
-            score+=Integer.valueOf(questionChoice.getOption1().split("-")[1]);
-        }
-        if(questionChoice.getOption2()!=null){
-            score+=Integer.valueOf(questionChoice.getOption2().split("-")[1]);
-        }
-        if(questionChoice.getOption3()!=null){
-            score+=Integer.valueOf(questionChoice.getOption3().split("-")[1]);
-
-        }
-        if(questionChoice.getOption4()!=null){
-            score+=Integer.valueOf(questionChoice.getOption4().split("-")[1]);
-        }
-        questionChoice.setScore(score);
         questionChoice.setSubmit_time(new Date());
         questionChoiceService.save(questionChoice);
         return Result.ok("操作成功");

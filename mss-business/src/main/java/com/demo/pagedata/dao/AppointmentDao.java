@@ -11,4 +11,7 @@ public interface AppointmentDao extends JpaRepository<Appointment,String> {
     @Query("select x from Appointment x order by x.add_time DESC")
     public List<Appointment> findAll();
 
+    @Query("select count(a.id) from Appointment a")
+    public long count();
+
 }

@@ -18,4 +18,8 @@ public class AppointmentService {
     public Iterable<Appointment> findAll(){
         return appointmentDao.findAll();
     }
+
+    public long count(){
+       return appointmentDao.count();
+    }
 }

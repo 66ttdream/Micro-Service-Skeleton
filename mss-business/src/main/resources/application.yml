@@ -22,6 +22,14 @@ spring:
       #      最大支持请求大小
       max-request-size: 100MB
 
+#阿里云短信配置
+aliyun:
+  sms:
+    access-key-id: LTAI4G4sQ4XvR25ZavwTBzDA
+    access-key-secret: oXETTjhZPvpPblO35PgEeAaQbrPXK7
+    sign-name:
+    templates:
+
 #文件存储路径
 #filepath: E:/file/
 filepath: /usr/local/file

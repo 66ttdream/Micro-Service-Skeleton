@@ -39,4 +39,7 @@ public class TaskGroup {
     @ApiModelProperty(value = "体系时间")
     @Column(name = "warningtime")
     private String warningTime;
+
+    @ApiModelProperty(value = "事务提醒类型")
+    private String cycle;
 }

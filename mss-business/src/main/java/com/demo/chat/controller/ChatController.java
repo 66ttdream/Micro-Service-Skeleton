@@ -6,7 +6,6 @@ import com.demo.config.SpringBeansUtils;
 import com.demo.chat.po.Message;
 import com.demo.chat.service.MessageService;
 import com.demo.chat.util.UUID;
-import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -126,6 +125,7 @@ public class ChatController {
                             .content_data(jsonObject.getString("message"))
                             .send_time(new Date())
                             .system_massage("1")
+                            .isunread("1")
                             .build());
                 }else{
                     useMessageService().save(Message
@@ -135,6 +135,7 @@ public class ChatController {
                             .sendName(userId)
                             .content_data(jsonObject.getString("message"))
                             .send_time(new Date())
+                            .isunread("0")
                             .system_massage("1")
                             .build());
                     log.error("请求的userId:"+toUserId+"不在线");

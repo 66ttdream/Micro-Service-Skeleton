@@ -1,5 +1,6 @@
 package com.demo.pagedata.controller;
 
+import com.demo.chat.controller.ChatController;
 import com.demo.chat.po.Appointment;
 import com.demo.chat.util.UUID;
 import com.demo.pagedata.service.AppointmentService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 import java.util.Random;
@@ -24,6 +26,7 @@ public class AppointmentController {
     @Resource
     private AppointmentService appointmentService;
 
+
     @ApiOperation(value = "获取所有预约信息")
     @GetMapping("all")
     public Result getAll(){
@@ -32,13 +35,17 @@ public class AppointmentController {
 
     @ApiOperation(value = "保存/更新预约信息")
     @PostMapping("save")
-    public  Result save(Appointment appointment){
+    public  Result save(Appointment appointment) throws IOException {
+        String id = UUID.getUUID();
         appointment.setAdd_time(new Date());
         Random random = new Random();
         int code = random.nextInt(99999999);
         appointment.setCode(String.valueOf(code));
-        appointment.setId(UUID.getUUID());
+        appointment.setId(id);
         appointmentService.save(appointment);
+        ChatController.sendInfo("id","admin");
+        ChatController.sendInfo("id","super");
+        ChatController.sendInfo("id","test1");
         return Result.ok();
     }
 

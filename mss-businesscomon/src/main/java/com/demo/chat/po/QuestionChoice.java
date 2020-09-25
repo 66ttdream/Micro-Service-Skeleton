@@ -2,7 +2,10 @@ package com.demo.chat.po;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +17,9 @@ import java.util.Date;
 @Entity
 @Table(name = "questionchoice")
 @ApiModel(description = "选项调查表")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuestionChoice {
     @Id
     @ApiModelProperty(value = "唯一主键")
@@ -36,8 +42,28 @@ public class QuestionChoice {
     private String option4;
 
     @ApiModelProperty(value = "选项5")
+    @Column(name="option5")
+    private String option5;
+
+    @ApiModelProperty(value = "选项6")
+    @Column(name="option6")
+    private String option6;
+
+    @ApiModelProperty(value = "选项7")
+    @Column(name="option7")
+    private String option7;
+
+    @ApiModelProperty(value = "选项8")
+    @Column(name="option8")
+    private String option8;
+
+    @ApiModelProperty(value = "内容1")
     @Column(name="appendix")
     private String appendix;
+
+    @ApiModelProperty(value = "内容2")
+    @Column(name="appendix2")
+    private String appendix2;
 
     @ApiModelProperty(value = "提交者")
     @Column(name="user_name")
@@ -46,6 +72,4 @@ public class QuestionChoice {
     @ApiModelProperty(value = "提交时间")
     private Date submit_time;
 
-    @ApiModelProperty(value = "得分")
-    private int score;
 }

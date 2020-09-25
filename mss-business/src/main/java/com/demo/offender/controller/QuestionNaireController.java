@@ -3,6 +3,7 @@ package com.demo.offender.controller;
 import com.demo.chat.po.QuestionNaire;
 import com.demo.offender.service.QuestionNaireService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import com.microservice.skeleton.common.vo.Result;
@@ -46,7 +47,14 @@ public class QuestionNaireController {
 
     @GetMapping("all")
     @ApiOperation(value = "获取工作报告")
-    public Result all(){
-        return Result.ok(questionNaireService.getAll());
+    @ApiImplicitParam(name="userName",value="用户名",required=true,dataType="String")
+    public Result findByUser(String userName){
+        return Result.ok(questionNaireService.findByUser(userName));
+    }
+    @GetMapping("one")
+    @ApiOperation(value = "获取工作报告")
+    @ApiImplicitParam(name="id",value="id",required=true,dataType="String")
+    public Result findById(String id){
+        return  Result.ok(questionNaireService.findById(id).get());
     }
 }

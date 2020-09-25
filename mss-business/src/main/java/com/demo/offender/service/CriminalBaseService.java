@@ -22,4 +22,8 @@ public class CriminalBaseService {
     public Iterable<CriminalBase> findAll(){
         return criminalBaseDao.findAll();
     }
+
+    public long findCount(){
+        return criminalBaseDao.count();
+    };
 }

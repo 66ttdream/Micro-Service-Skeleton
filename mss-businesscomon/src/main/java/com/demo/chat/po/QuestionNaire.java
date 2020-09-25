@@ -2,7 +2,9 @@ package com.demo.chat.po;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,7 +13,9 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name="questionnaire")
-@ApiModel(description = "问卷调查")
+@ApiModel(description = "工作报告")
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuestionNaire {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,4 +31,6 @@ public class QuestionNaire {
     private String jyzj;
     private String ldyj;
     private String file;
+    @Column(name = "username")
+    private String userName;
 }
