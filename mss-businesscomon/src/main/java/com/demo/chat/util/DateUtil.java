@@ -50,4 +50,17 @@ public class DateUtil {
         Date yesterday = c.getTime();
         return yesterday;
     }
+    /**
+     * 获取后一天的工作日日期
+     * @return
+     */
+    public static Date getLaterDay(Date date) throws ParseException {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        c.setTime(date);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        Date yesterday = c.getTime();
+        return yesterday;
+    }
 }

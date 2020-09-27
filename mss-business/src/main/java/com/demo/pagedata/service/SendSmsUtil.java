@@ -10,25 +10,27 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import java.util.Map;
 /**
  * @Description:    短信发送服务
  * @Author:         liuji
  */
-//@Service
+@Service
 public class SendSmsUtil {
 
-    @Value("${alisms.accessKeyId}")
-    private static String accessKeyId;
-    @Value("${alisms.accessSecret}")
-    private static String accessSecret;
-    @Value("${alisms.signName}")
-    private static String signName;
-    @Value("${alisms.templateCode}")
-    private static String templateCode;
+    @Value("${sms.access-key-id}")
+    private String accessKeyId;
+    @Value("${sms.access-key-secret}")
+    private String accessSecret;
+    @Value("${sms.sign-name}")
+    private String signName;
+   /* @Value("${sms.templateCode}")
+    private String templateCode;*/
 
 
-    public static String aliSendSms(String PhoneNumbers,String TemplateParam){
+    public String aliSendSms(String PhoneNumbers,String TemplateParam,String templateCode){
         String result = "";
         DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId, accessSecret);
         IAcsClient client = new DefaultAcsClient(profile);
@@ -43,6 +45,7 @@ public class SendSmsUtil {
         request.putQueryParameter("SignName", signName);
         request.putQueryParameter("TemplateCode", templateCode);
         request.putQueryParameter("TemplateParam", TemplateParam);
+        //request.putBodyParameter("time",time);
         try {
             CommonResponse response = client.getCommonResponse(request);
             System.out.println(response.getData());

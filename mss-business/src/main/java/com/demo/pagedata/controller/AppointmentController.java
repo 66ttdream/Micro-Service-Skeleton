@@ -43,9 +43,14 @@ public class AppointmentController {
         appointment.setCode(String.valueOf(code));
         appointment.setId(id);
         appointmentService.save(appointment);
-        ChatController.sendInfo("id","admin");
-        ChatController.sendInfo("id","super");
-        ChatController.sendInfo("id","test1");
+        if(appointment.getIsPassed()!=null){
+            //发消息，成功：提醒什么时候关注消息，失败：提醒重新提交
+        }
+        if(appointment.getIsPassed()==null){
+            ChatController.sendInfo("id","admin");
+            ChatController.sendInfo("id","super");
+            ChatController.sendInfo("id","test1");
+        }
         return Result.ok();
     }
 
