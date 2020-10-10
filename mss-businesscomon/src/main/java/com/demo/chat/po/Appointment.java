@@ -66,6 +66,7 @@ public class Appointment {
     @ApiModelProperty(value = "新增时间")
     private Date add_time;
 
-    @ApiModelProperty(value = "新增时间")
+    @ApiModelProperty(value = "联系电话")
+    @Column(name = "phone_number")
     private String phoneNumber;
 }

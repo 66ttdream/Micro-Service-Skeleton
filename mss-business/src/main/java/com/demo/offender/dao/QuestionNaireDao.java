@@ -9,10 +9,10 @@ import java.util.List;
 
 @Repository
 public interface QuestionNaireDao extends CrudRepository<QuestionNaire,String> {
-    @Query("select q from QuestionNaire q where q.userName='admin' or q.userName='super'")
+    @Query("select q from QuestionNaire q where q.userName='admin' or q.userName='test1'")
     public List<QuestionNaire> adminFind();
 
-    @Query("select q from QuestionNaire q where q.userName='super'")
+    @Query("select q from QuestionNaire q where q.userName='super' or q.userName='admin'")
     public List<QuestionNaire> superFind();
 
 }

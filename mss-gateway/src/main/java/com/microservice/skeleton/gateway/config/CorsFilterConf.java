@@ -10,9 +10,9 @@ import org.springframework.web.filter.CorsFilter;
 /**
  * @author liuji
  */
-@Configuration
+//@Configuration
 public class CorsFilterConf {
-    @Bean
+    /*@Bean
     public CorsFilter corsFilter() {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
@@ -29,5 +29,5 @@ public class CorsFilterConf {
         config.addAllowedMethod("PATCH");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
-    }
+    }*/
 }

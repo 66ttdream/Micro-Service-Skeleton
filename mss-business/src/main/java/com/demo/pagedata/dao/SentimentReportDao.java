@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface SentimentReportDao extends JpaRepository<SentimentReport,String> {
 
-    @Query("select s from SentimentReport s where s.userName='admin' or  s.userName='super'")
+    @Query("select s from SentimentReport s where s.userName='admin' or  s.userName='test1'")
     public List<SentimentReport> adminFindAll();
 
-    @Query("select s from SentimentReport s where s.userName='super'")
+    @Query("select s from SentimentReport s where s.userName='admin' or  s.userName='super'")
     public List<SentimentReport> superFindAll();
 }

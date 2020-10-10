@@ -25,6 +25,12 @@
             <version>2.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <!--音频格式转换包-->
+        <dependency>
+            <groupId>ws.schild</groupId>
+            <artifactId>jave-all-deps</artifactId>
+            <version>2.6.0</version>
+        </dependency>
         <dependency>
             <groupId>com.microservice.skeleton.common</groupId>
             <artifactId>mss-common</artifactId>

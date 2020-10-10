@@ -2,6 +2,7 @@ package com.demo.offender.controller;
 
 import com.demo.chat.po.FileInfo;
 import com.demo.chat.po.QuestionNaire;
+import com.demo.chat.util.FormatUtil;
 import com.demo.offender.service.FileInfoService;
 import com.demo.offender.service.QuestionNaireService;
 import com.microservice.skeleton.common.vo.Result;
@@ -51,18 +52,34 @@ public class FileController {
     public Result upData(@RequestParam("file") MultipartFile file){
         //questionNaireService.save(questionNaire);
         File targetFile = new File(filepath);
+        File source = new File(filepath +file.getOriginalFilename());
+        File target = new File(filepath +file.getOriginalFilename().split("\\.")[0]+"."+"mp3");
         String fileName = file.getOriginalFilename();
         log.info(fileName);
         if (!targetFile.exists()) {
             targetFile.mkdirs();
         }
-        try (FileOutputStream out = new FileOutputStream(filepath + file.getOriginalFilename());){
-            out.write(file.getBytes());
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("文件上传失败!");
-            return Result.failure(1000,"uploading failure");
+        //格式转换
+        if(fileName.split("\\.")[1].equals("amr")){
+            try (FileOutputStream out = new FileOutputStream(filepath + file.getOriginalFilename());){
+                out.write(file.getBytes());
+                FormatUtil.audioToPcm(source,target);
+                fileName=file.getOriginalFilename().split("\\.")[0]+"."+"mp3";
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error("文件上传失败!");
+                return Result.failure(1000,"uploading failure");
+            }
+        }else {
+            try (FileOutputStream out = new FileOutputStream(filepath + file.getOriginalFilename());){
+                out.write(file.getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error("文件上传失败!");
+                return Result.failure(1000,"uploading failure");
+            }
         }
+
         log.info("文件上传成功!");
         /*String[] allFileName  = fileName.split(".");
         String name = allFileName[0];

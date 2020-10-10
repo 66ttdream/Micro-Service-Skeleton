@@ -49,13 +49,14 @@ public class GroupController{
             taskService.save(t);
         }
         cronService.saveOne(Cron.builder()
-                .id(UUID.getUUID())
+                .id(id)
                 .group_name(dto.getName())
                 .task_count(dto.getTasks().size())
                 .user_name(dto.getUserName())
                 .cron(GenerateCronUtil.getCron(dto.getCycle(),dto.getWarningTime()))
                 .build());
         //new TimerTask(GenerateCronUtil.getCron(dto.getCycle(),dto.getWarningTime()));
+        System.out.println("time:.................."+dto.getWarningTime());
         System.out.println("Cycle:"+GenerateCronUtil.getCron(dto.getCycle(),dto.getWarningTime()));
         jobService.buildJob(GenerateCronUtil.getCron(dto.getCycle(),dto.getWarningTime()),UUID.getUUID());
         return Result.ok("操作成功");

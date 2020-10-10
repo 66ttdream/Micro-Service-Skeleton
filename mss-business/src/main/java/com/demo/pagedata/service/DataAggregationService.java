@@ -18,7 +18,7 @@ public class DataAggregationService {
 
     public List<DataAggregation> getAll(String userName){
         if(userName.equals("admin")){
-            return dataAggregationDao.findAdminData("admin","super");
+            return dataAggregationDao.findAdminData("admin","test1");
         }
         if(userName.equals("super")){
             return dataAggregationDao.findSuperData("super");

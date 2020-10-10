@@ -71,5 +71,8 @@ public class QuestionChoice {
 
     @ApiModelProperty(value = "提交时间")
     private Date submit_time;
+    @ApiModelProperty(value = "文件下载地址")
+    private String path;
+
 
 }

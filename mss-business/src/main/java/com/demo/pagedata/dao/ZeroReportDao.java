@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface ZeroReportDao extends JpaRepository<ZeroReport,String> {
 
-    @Query("select z from ZeroReport z where z.userName='admin' or z.userName='super'")
+    @Query("select z from ZeroReport z where z.userName='admin' or z.userName='test1'")
     public List<ZeroReport> adminFind();
-    @Query("select z from ZeroReport z where z.userName='super'")
+    @Query("select z from ZeroReport z where z.userName='admin' or z.userName='super'")
     public List<ZeroReport> superFind();
 }

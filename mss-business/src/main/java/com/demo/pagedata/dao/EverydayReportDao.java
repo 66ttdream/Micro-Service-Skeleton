@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface EverydayReportDao extends JpaRepository<EverydayReport,String > {
-    @Query("select e from EverydayReport e where e.userName='admin' or e.userName='super'")
+    @Query("select e from EverydayReport e where e.userName='admin' or e.userName='test1'")
     public List<EverydayReport> adminFind();
 
 
-    @Query("select e from EverydayReport e where e.userName='super'")
+    @Query("select e from EverydayReport e where e.userName='admin' or e.userName='super'")
     public List<EverydayReport> superFind();
 
 }

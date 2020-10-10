@@ -17,7 +17,7 @@ public interface DataAggregationDao extends JpaRepository<DataAggregation,String
     public List<DataAggregation> findAdminData(@Param("admin") String user1, @Param("super")String user2);
 
 
-    @Query("select d from DataAggregation d where d.userName=:super")
+    @Query("select d from DataAggregation d where d.userName='admin' or d.userName=:super")
     public List<DataAggregation> findSuperData(@Param("super")String user1);
 
     @Query("select d from DataAggregation d where d.riqi=:date")

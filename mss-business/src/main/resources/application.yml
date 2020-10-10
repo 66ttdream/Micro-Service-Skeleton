@@ -27,7 +27,8 @@ sms:
   access-key-id: LTAI4G4sQ4XvR25ZavwTBzDA
   access-key-secret: oXETTjhZPvpPblO35PgEeAaQbrPXK7
   sign-name: 四川日海云监科技有限公司
-  templates: SMS_203197272,SMS_203192184
+  #申请，拒绝，通过
+  templates: SMS_203718071,SMS_203677926,SMS_203192184
 
 #文件存储路径
 #filepath: E:/file/

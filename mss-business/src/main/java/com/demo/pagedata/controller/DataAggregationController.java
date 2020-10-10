@@ -49,12 +49,34 @@ public class DataAggregationController {
         if(dataAggregationService.findByDate(riqi).isEmpty()){
             DataAggregation dataAggregation = new DataAggregation();
             long count = criminalBaseDaoService.findCount();
-            dataAggregation.setCrimes_count((int)count);
-            dataAggregation.setInmates((int)count);
+            //DataAggregation dataAggregation = DataAggregation.builder()
+            dataAggregation.setCrimes_count(Integer.valueOf((int) (1342+count)));
+            dataAggregation.setInmates(Integer.valueOf((int) (1330+count)));
+            dataAggregation.setNew_add(2);
+            dataAggregation.setRelease_number(5);
+            dataAggregation.setJail_out(2);
+            dataAggregation.setHospitalized(10);
+            dataAggregation.setDay_shift(76);
+            dataAggregation.setAfter(76);
+            dataAggregation.setLater(65);
+            dataAggregation.setNight(65);
+            //dataAggregation.SetCrimes_count(Integer.valueOf((int) (1342+count)))
+             /*       .inmates(Integer.valueOf((int) (1330+count)))
+                    .new_add(2)
+                    .release_number(5)
+                    .jail_out(2)
+                    .hospitalized(10)
+                    .day_shift(76)
+                    .after(76)
+                    .later(65)
+                    .night(65)
+                    .build();*/
+            //dataAggregation.setCrimes_count((int)count);
+            //dataAggregation.setInmates((int)count);
             return Result.ok(dataAggregation);
         }else {
             //如果不为空，查询前一天数据，更新
-            return Result.ok(dataAggregationService.findByDate(riqi));
+            return Result.ok(dataAggregationService.findByDate(riqi).get(0));
         }
     }
 
