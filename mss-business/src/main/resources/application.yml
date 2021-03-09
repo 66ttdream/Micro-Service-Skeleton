@@ -25,7 +25,7 @@ spring:
 #阿里云短信配置
 sms:
   access-key-id: LTAI4G4sQ4XvR25ZavwTBzDA
-  access-key-secret: oXETTjhZPvpPblO35PgEeAaQbrPXK7
+  access-key-secret: oX109635ETT2726jhZPvpPblO35PgEeAaQbrPXK7
   sign-name: 四川日海云监科技有限公司
   #申请，拒绝，通过
   templates: SMS_203718071,SMS_203677926,SMS_203192184
